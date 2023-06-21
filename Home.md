@@ -3,7 +3,7 @@
 
 
 ***
-# Общая схема работы со сведениями, собранными в PT NAD
+# Примеры полезных фильтров для работы со сведениями, собранными в PT NAD
 
 ## 1. Выявленные инциденты ИБ
 
@@ -56,12 +56,12 @@
 ## 10. Сканирование портов (Nmap syn scan)
 `os.client ~ "*map*"`
 
-## 11. Синкхоллы
+## 11. Синкхолы
 `app_proto != dns and rpt.cat == "sinkholes"` - попытки подключения
  
-`app_proto == dns and rpt.cat == "sinkholes"` - резолвы
+`app_proto == dns and rpt.cat == "sinkholes"` - успешные резолвы
 
-`dns(answer.ip == 127.0.0.1 && answer.rrname != "localhost")` - подозрительные резолвы. Возможно спящие C&C.
+`dns(answer.ip == 127.0.0.1 && answer.rrname != "localhost")` - подозрительные резолвы. Возможно "спящие" C&C.
 
 ## 12. Серверы с DDNS.
 `rpt.cat == "ESC-DDNS-dns" and rpt.where == "flow.dst"`
@@ -79,18 +79,8 @@
 
 `ssh.tunnel` - SSH-туннели
 
+`rpt.cat == "dga" and rpt.where == "flow.dst"` - подключение к DGA доменам
 
-25)Подключения к DGA доменам
-rpt.cat == "dga" and rpt.where == "flow.dst"
+`dst.groups == "EXTERNAL_NET" && app_proto == "encrypted"` - шифрованные подключения во внешнюю сеть (кастомное шифрование)
 
-26)Шифрованные подключение во внешнюю сеть (кастомное шифрование)
-dst.groups == "EXTERNAL_NET" && app_proto == "encrypted"
-
-27)Сессии с удаленным созданием сервисов
-dcerpc.rqs.operation.params.service_name
-
-28)Шифрованный SMB
-smb.rqs.command == ENCRYPTED
-
-
- 
+`dcerpc.rqs.operation.params.service_name` - сессии с удаленным созданием сервисов
