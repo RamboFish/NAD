@@ -13,9 +13,9 @@
 
 `(rpt.cat == "tor-relays" && app_proto == "tls" and rpt.where == "flow.dst") or alert.msg ~ "*[PTsecurity]*TOR*"` - поиск трафика, относящегося к сетям TOR
 
-`app_proto == “bittorrent”` - поиск torrent клиентов
+`app_proto == "bittorrent"` - поиск torrent клиентов
 
-`app_proto == “teamviewer”` - поиск сессий TeamViewer
+`app_proto == "teamviewer"` - поиск сессий TeamViewer
 
 `alert.msg ~ "REMOTE*"` - прочие утилиты удаленного доступа
 
