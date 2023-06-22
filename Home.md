@@ -71,7 +71,7 @@
 ## 13. llmnr и netbios
 `app_proto == "nbns" or app_proto == "llmnr"`
 
-## Подозрительные соединения
+## 14. Подозрительные соединения
 
 `src.groups == EXTERNAL_NET && dst.port not in [25, 80, 443] && !errors && proto == "tcp" && bytes.recv > 800` - TCP соединения из внешней сети на нестандартные порты
 
