@@ -68,7 +68,7 @@
 
 `!rpt.cat == "ESC-DDNS-dns" and rpt.cat ~ "ESC*"`
 
-## 13. Llmnr и netbios
+## 13. llmnr и netbios
 `app_proto == "nbns" or app_proto == "llmnr"`
 
 ## Подозрительные соединения
