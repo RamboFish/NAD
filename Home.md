@@ -66,7 +66,7 @@ From any screen, go to -> "Activity stream". This will open a list of all discov
 
 `!rpt.cat == "ESC-DDNS-dns" and rpt.cat ~ "ESC*"`
 
-## 13. llmnr и netbios
+## 13. llmnr and netbios
 `app_proto == "nbns" or app_proto == "llmnr"`
 
 ## 14. Suspecious connections
@@ -77,13 +77,12 @@ From any screen, go to -> "Activity stream". This will open a list of all discov
 
 `ssh.tunnel` - SSH-tunnels
 
-
-
-[Official documentation (filters)](https://help.ptsecurity.com/projects/nad/11.0/en-US/help/1091135243)
-
-
 `rpt.cat == "dga" and rpt.where == "flow.dst"` - Connections to DGA domains
 
 `dst.groups == "EXTERNAL_NET" && app_proto == "encrypted"` - Connections to external networks with custom encryption
 
 `dcerpc.rqs.operation.params.service_name` - Sessions with remote service creation
+
+*** 
+
+Full documentation can be found here: [Official documentation (filters)](https://help.ptsecurity.com/projects/nad/11.0/en-US/help/1091135243)
