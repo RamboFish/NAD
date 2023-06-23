@@ -1,5 +1,4 @@
-[Official documentation (filters)](https://help.ptsecurity.com/projects/nad/11.0/en-US/help/1091135243)
-#Original article by rsvititch: https://github.com/rsvititch/PTNADWorkshop/wiki
+Original article by rsvititch: https://github.com/rsvititch/PTNADWorkshop/wiki
 
 ***
 # PT NAD Examples of useful filters in NAD:
@@ -77,6 +76,11 @@ From any screen, go to -> "Activity stream". This will open a list of all discov
 `dst.groups == "EXTERNAL_NET" && proto == "tcp" and dst.port not in (53, 80, 443)`  -  Non-standard TCP port connections to external networks
 
 `ssh.tunnel` - SSH-tunnels
+
+
+
+[Official documentation (filters)](https://help.ptsecurity.com/projects/nad/11.0/en-US/help/1091135243)
+
 
 `rpt.cat == "dga" and rpt.where == "flow.dst"` - Connections to DGA domains
 
