@@ -1,7 +1,20 @@
 ***
 # Importing pcap files larger than 1024 mb:
 
-## 1. Detected and confirmed security incidents
+## 1. Configure additional directories for PCAPs on the server
 
-From any screen, go to -> "Activity stream". This will open a list of all discovered security incident activities.
-curl -u username:password -k -v -H "Content-Type: application/json" -X POST 'https://ip_addr:443/api/v2/sources/import' -d '{ "target": "not_exists", "create": true, "files": [ "file:///mnt/usb/file.pcap" ] }'
+### Create new pcaps directory
+
+`sudo mkdir /pcaps/uploads`
+
+### Use vi or nano, to add the following line toopt/ptsecurity/etc/ptdpi.settings.yaml:
+
+`pcap_path: /pcaps/uploads`
+
+## 2. Restart NAD services
+
+`sudo systemctl restart nad-*-server.service`
+
+## 3. Method 1 (large PCAP is already uploaded on the server 
+
+`curl -u username:password -k -v -H "Content-Type: application/json" -X POST 'https://ip_addr:443/api/v2/sources/import' -d '{ "target": "not_exists", "create": true, "files": [ "file:///mnt/usb/file.pcap" ] }'`
