@@ -7,7 +7,7 @@
 
 `sudo mkdir /pcaps/uploads`
 
-### Use vi or nano, to add the following line toopt/ptsecurity/etc/ptdpi.settings.yaml:
+### Use vi or nano, to add the following line /opt/ptsecurity/etc/ptdpi.settings.yaml:
 
 `pcap_path: /pcaps/uploads`
 
